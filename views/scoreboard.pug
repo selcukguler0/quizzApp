@@ -1,42 +1,43 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible' content='IE=edge')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Document
-    style.
-      html {
-      margin: 0;
-      background: #50a3a2;
-      }
-      body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      }
-      .scoreboard {
-      background: #244d4c;
-      width: 300px;
-      height: 500px;
-      border-radius: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow-y: auto;
-      }
-      .header {
-      margin-top: 50px;
-      column-gap: 50px;
-      font-size: 30px;
-      color: whitesmoke;
-      font-style: oblique;
-      }
-      .scores {
-      margin-top: 30px;
-      color: white;
-      }
-  body
-    .scoreboard
-      span.header Scoreboard
-      span.scores Test --> Point
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		title Document
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js")
+		style.
+			html {
+			margin: 0;
+			background: #50a3a2;
+			}
+			body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			}
+			.scoreboard {
+			background: #244d4c;
+			width: 300px;
+			height: 500px;
+			border-radius: 50px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			overflow-y: auto;
+			}
+			.header {
+			margin-top: 50px;
+			column-gap: 50px;
+			font-size: 30px;
+			color: whitesmoke;
+			font-style: oblique;
+			}
+			.scores {
+			margin-top: 30px;
+			color: white;
+			}
+	body
+		.scoreboard
+			span.header Scoreboard
+		script(src='socketio.js')

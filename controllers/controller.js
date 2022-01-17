@@ -78,5 +78,5 @@ exports.postQuestions = (req, res) => {
 exports.getScoreboard = (req, res) => {
 	req.session.correctAnswers = 0;
 	req.session.destroy();
-	res.redirect('/');
+	res.render("scoreboard");
 };

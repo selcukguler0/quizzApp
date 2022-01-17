@@ -1,3 +1,4 @@
 node-modules
 .eslintignore
 .eslintrc.json
+public/*.html
