@@ -1,17 +1,33 @@
 const { connection } = require('../models/database');
 
 exports.getHome = (req, res) => {
+	req.session.error = " ";
 	req.session.correctAnswers = 0;
 	res.render('index');
 };
 exports.postHome = (req, res) => {
-	console.log('post home');
+	req.session.error = " ";
 	const { name } = req.body;
 	req.session.name = name;
-	const sql = 'INSERT INTO users (name) VALUES (?)';
-	connection.query(sql, [name], (err, results) => {
-		if (err) throw err;
-		res.redirect('/question/1');
+	const sqlSl = "SELECT name FROM users WHERE name=?";
+	connection.query(sqlSl, [name], (err, result) => {
+		try {
+			if (result[0]) {
+				if (result[0].name === req.session.name) {
+					req.session.error = "This name already in use.";
+					return res.render("index", { errorMessage: req.session.error });
+				}
+			}
+			
+		const sql = "INSERT INTO users (name) VALUES (?)";
+		connection.query(sql, [name], (err, results) => {
+			if (err) throw err;
+			return res.redirect("/question/1");
+		});
+		} catch (err) {
+			console.log(err);
+		}
+		
 	});
 };
 
