@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css')
+    link(rel='stylesheet' href='../questionStyle.css')
+    title JS Bin
+  body
+    .wrapper
+      #quiz
+        // question number
+        h1 Question: #{questionNumber}
+        p.questions
+            label #{question}
+        .answers
+            form(action="/question", method="post") 
+                input(type='radio' class="choice" id="a" name='choice' value='a') 
+                label(for='a')  #{choiceA}
+                br
+                input(type='radio' class="choice" id="b" name='choice' value='b') 
+                label(for='b')  #{choiceB}
+                br
+                input(type='radio' class="choice" id="c" name='choice' value='c') 
+                label(for='c')  #{choiceC}
+                br
+                input(type='radio' class="choice" id="d" name='choice' value='d') 
+                label(for='d')  #{choiceD}
+                br
+                button(type="submit") #{button}
+            
